@@ -12,14 +12,18 @@ export default function AIHeader() {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-40">
+    <header className="bg-white shadow-lg sticky top-0 z-40 border-b-2 border-blue-100">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Brain className="w-10 h-10 text-blue-600" />
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/50 transition-all duration-300 group-hover:scale-110">
+              <Brain className="w-8 h-8 text-white" />
+            </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-800">DBI Pvt. Ltd.</h1>
-              <p className="text-xs text-gray-600">AI & Automation</p>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                DBI Pvt. Ltd.
+              </h1>
+              <p className="text-xs text-gray-600 font-medium">AI & Automation</p>
             </div>
           </div>
 
@@ -28,9 +32,10 @@ export default function AIHeader() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="relative text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200 group/item"
               >
                 {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 group-hover/item:w-full transition-all duration-300"></span>
               </button>
             ))}
           </nav>

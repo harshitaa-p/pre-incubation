@@ -25,28 +25,41 @@ export default function AISectors() {
   };
 
   return (
-    <Section id="sectors" background="blue">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Sectors We Serve</h2>
-        <p className="text-xl text-gray-600">
-          AI solutions tailored for diverse industries
-        </p>
-      </div>
+    <Section id="sectors" background="blue" className='py-0'>
+      <div className="relative min-h-[600px]">
+        <div className="overflow-hidden absolute inset-0 opacity-30 pointer-events-none">
+          <img
+            src="/images/ai/ai-circuit.svg"
+            alt=""
+            className="object-cover w-full h-full"
+            style={{ minHeight: '600px' }}
+          />
+        </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {sectors.map((sector, index) => {
-          const Icon = sector.icon;
-          return (
-            <Card key={index}>
-              <button className="w-full text-center space-y-4 transition-all duration-300">
-                <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center transition-colors ${colorClasses[sector.color]}`}>
-                  <Icon className="w-8 h-8" />
-                </div>
-                <h3 className="font-semibold text-gray-800">{sector.title}</h3>
-              </button>
-            </Card>
-          );
-        })}
+        <div className="relative z-10">
+          <div className="pt-5 mb-12 text-center">
+            <h2 className="mb-4 text-4xl font-bold text-gray-800">Sectors We Serve</h2>
+            <p className="text-xl text-gray-600">
+              AI solutions tailored for diverse industries
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {sectors.map((sector, index) => {
+              const Icon = sector.icon;
+              return (
+                <Card key={index}>
+                  <button className="space-y-4 w-full text-center transition-all duration-300 group hover:scale-105">
+                    <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center transition-all duration-300 ${colorClasses[sector.color]} group-hover:shadow-lg transform group-hover:rotate-6`}>
+                      <Icon className="w-8 h-8 transition-transform transform group-hover:scale-110" />
+                    </div>
+                    <h3 className="font-semibold text-gray-800 transition-colors group-hover:text-blue-600">{sector.title}</h3>
+                  </button>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </Section>
   );
